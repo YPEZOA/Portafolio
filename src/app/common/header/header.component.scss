@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+.navbar {
+  font-family: "Poppins", sans-serif;
+  padding: 15px;
+  background-color: #222222;
+  box-shadow: 0px 3px 7px #121212;
+  .navbar-brand {
+    margin-left: 100px;
+    i.logo {
+      color: #b2eeff;
+      font-size: 40px;
+      font-weight: 900;
+    }
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      color: #f2f2f2;
+    }
+  }
+  .navbar-toggler {
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255, 0.2);
+    padding: 5px 13px;
+    color: #f2f2f2;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .navbar-collapse {
+    margin-right: 100px;
+    justify-content: end;
+    width: 100%;
+    .navbar-nav {
+      .nav-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: 5px 10px;
+        .nav-link {
+          color: #f2f2f2;
+          text-transform: uppercase;
+          &:hover {
+            text-decoration: underline 2px lightblue;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .navbar-collapse {
+      margin: 0;
+      padding: 0;
+      margin-top: 20px;
+    }
+    .navbar-brand {
+      margin-left: 10px;
+      a {
+        font-size: 16px;
+      }
+      img {
+        width: 30px;
+      }
+    }
+  }
+}

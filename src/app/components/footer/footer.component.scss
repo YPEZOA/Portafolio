@@ -1,0 +1,66 @@
+@import "../../../assets/mixins/index.scss";
+
+.footer {
+  clear: both;
+  position: relative;
+  background-color: rgb(0, 0, 0, 0.1);
+  border-top: 1px solid #333333;
+  padding: 60px 0;
+  bottom: 0;
+  width: 100%;
+  color: #f2f2f2;
+  .footer__content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    i.logo {
+      font-size: 80px;
+      padding: 20px 0px;
+    }
+    .footer-content__social-media {
+      padding: 30px 0px;
+      a.social-media__icon {
+        margin-left: 10px;
+        opacity: 0.7;
+      }
+      i.linkedin {
+        @include social-media-footer;
+      }
+      i.github {
+        @include social-media-footer;
+      }
+      i.mail {
+        @include social-media-footer;
+      }
+    }
+    .social-media__year {
+      font-size: 16px;
+      color: #fff;
+      opacity: 0.2;
+      font-weight: 100;
+      padding: 15px 0px;
+    }
+    .social-media__built {
+      font-size: 11px;
+      opacity: 0.2;
+      font-weight: 100;
+      padding: 15px 0px;
+      font-weight: 500;
+      i.fab {
+        font-size: 20px;
+      }
+      .built__framework {
+        font-size: 20px;
+        margin: 0;
+        display: inline-block;
+      }
+    }
+    .footer__message {
+      padding: 20px 0px;
+      font-size: 30px;
+      font-weight: 100;
+      opacity: 0.3;
+    }
+  }
+}

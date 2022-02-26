@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap");
+@import "../../../assets/mixins/index.scss";
+
+.projects {
+  margin-top: 70px;
+  font-family: "Raleway", sans-serif;
+  .projects__title {
+    color: #f2f2f2;
+    text-align: center;
+    font-weight: 500;
+    padding: 10px 0px;
+  }
+  .projects__content {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .projects-content__box {
+      position: relative;
+      overflow: hidden;
+      width: 50%;
+      margin: 10px;
+      border-radius: 10px;
+      background-color: rgb(255, 255, 255, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      .content-box__text {
+        font-family: "Raleway", sans-serif;
+        color: #f2f2f2;
+        font-size: 20px;
+        width: 45%;
+        padding-left: 15px;
+        padding-top: 10px;
+        .highlighted {
+          @include highlighted-text;
+        }
+        .content-box__external-links {
+          margin-top: 20px;
+          position: absolute;
+          bottom: 0;
+          margin-bottom: 10px;
+          a img.github {
+            width: 30px;
+            border-radius: 50%;
+            margin-bottom: 5px;
+            margin-left: 10px;
+          }
+          a i.external-icon {
+            color: lightgray;
+            font-size: 20px;
+          }
+        }
+      }
+      .content-box__picture {
+        width: 350px;
+        opacity: 0.7;
+        transition: 0.5s;
+        height: 200px;
+        &:hover {
+          transform: scale(0.9);
+          border-radius: 10px;
+          opacity: 1;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .more-projects {
+    text-align: center;
+    color: rgb(255, 255, 255, 0.5);
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .projects {
+    .projects__title {
+      width: 50%;
+    }
+    .projects__content {
+      flex-direction: column;
+      align-items: center;
+      .projects-content__box {
+        margin: 0px;
+        margin-bottom: 10px;
+        width: 95%;
+        .content-box__text {
+          margin-top: 10px;
+          width: 100%;
+          font-size: 16px;
+          font-weight: 600;
+          .content-box__external-links {
+            position: initial;
+          }
+        }
+        .content-box__picture {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@mixin highlighted-text {
+  color: #79cee1;
+}
+
+@mixin social-media-footer {
+  font-size: 25px;
+  color: #b2eeff;
+  cursor: pointer;
+  border-radius: 100%;
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  transition: all 0.3s;
+  border: 1px solid;
+  &:hover {
+    color: #333333;
+    background-color: #e5e5e5;
+    border-color: #e5e5e5;
+  }
+}
