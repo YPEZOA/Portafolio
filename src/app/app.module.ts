@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {CommonsModule} from './common/commons.module';
-import {AccordionModule} from 'ngx-bootstrap/accordion';
+import { CommonsModule } from './common/commons.module';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { SkillsComponent } from './components/skills/skills.component';
@@ -20,7 +20,7 @@ import { FeedComponent } from './components/feed/feed.component';
     SkillsComponent,
     ProjectComponent,
     FooterComponent,
-    FeedComponent
+    FeedComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +31,6 @@ import { FeedComponent } from './components/feed/feed.component';
     NgbTooltipModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
