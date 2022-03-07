@@ -32,6 +32,23 @@
           outline: none;
         }
       }
+      .form-control__error {
+        margin-top: 5px;
+        background-color: #ffc3c3;
+        padding: 5px;
+        border-radius: 5px;
+        color: #ff3a3a;
+        font-size: 14px;
+        transition-delay: 0.5s;
+      }
+      .form-control__text-length {
+        color: lightgray;
+        text-align: right;
+        padding: 5px;
+      }
+      .max-length_message {
+        color: #0081a5;
+      }
     }
     .feed__btn-send {
       margin-top: 10px;

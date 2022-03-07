@@ -12,6 +12,7 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectComponent } from './components/project/project.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FeedComponent } from './components/feed/feed.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import { FeedComponent } from './components/feed/feed.component';
     BrowserAnimationsModule,
     AccordionModule.forRoot(),
     NgbTooltipModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
