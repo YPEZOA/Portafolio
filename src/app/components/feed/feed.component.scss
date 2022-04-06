@@ -10,41 +10,44 @@
   border-bottom: 2px solid #3d3d3d;
   .feed__title {
     color: #f2f2f2;
-    font-weight: 200;
   }
   .feed__form {
-    padding: 35px;
-    width: 30%;
-    margin: auto;
-    margin-top: 50px;
+    //padding: 0px 150px;
+    width: 40%;
+    float: right;
+    .feed__title {
+      color: #f2f2f2;
+      font-weight: 200;
+      text-align: left;
+    }
     .feed__form-group {
       display: flex;
       flex-direction: column;
-      margin-bottom: 10px;
+      margin-top: 15px;
       .form-group__field {
         padding: 5px 0px;
         text-align: left;
         color: #f2f2f2;
       }
       .field {
-        box-shadow: 0px 3px 5px rgb(0, 0, 0, 0.4);
+        //box-shadow: 0px 3px 5px rgb(0, 0, 0, 0.4);
         &:focus {
           outline: none;
         }
       }
       .form-control__error {
-        margin-top: 5px;
-        background-color: #ffc3c3;
         padding: 5px;
-        border-radius: 5px;
-        color: #ff3a3a;
+        margin-top: 5px;
+        color: #b95a46;
         font-size: 14px;
-        transition-delay: 0.5s;
+        text-align: left;
       }
       .form-control__text-length {
+        font-family: Arial;
         color: lightgray;
         text-align: right;
         padding: 5px;
+        font-size: 14px;
       }
       .max-length_message {
         color: #0081a5;
@@ -62,6 +65,43 @@
       float: right;
       &:hover {
         background-color: #3fafaf;
+      }
+    }
+  }
+  .comments {
+    text-align: left;
+    width: 30%;
+    padding: 30px;
+    margin-top: 45px;
+    .comments__box {
+      max-height: 250px;
+      overflow: scroll;
+      padding: 5px 20px;
+      background-color: #3a3a3a;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 60px;
+      border-top-right-radius: 90px;
+      box-shadow: inset 3px 3px 10px #000;
+      .comments-box__title {
+        margin-top: 10px;
+        color: #f2f2f2;
+        font-weight: 700;
+      }
+    }
+    .comments__content {
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #3e9999;
+      margin-top: 5px;
+      box-shadow: 0px 2px 2px #646464;
+      .comments-content__name {
+        color: #fff;
+        font-weight: 900;
+      }
+      .comments-content__message {
+        margin: 0;
+        color: #fff;
+        padding-left: 30px;
       }
     }
   }

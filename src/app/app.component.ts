@@ -17,7 +17,7 @@ export class AppComponent {
   @HostListener('window:scroll')
   public windowScroll() {
     const yOffset = window.pageYOffset;
-    this.showButton = yOffset > 1390 ? true : false;
+    this.showButton = yOffset > 1390;
   }
 
   public scrollToTop(): void {

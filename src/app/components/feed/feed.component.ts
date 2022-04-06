@@ -1,31 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IComment } from 'src/app/common/interfaces/comment.interface';
+import { IResponse } from 'src/app/common/interfaces/response.interface';
+import { CommentsService } from 'src/app/services/comments.service';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeedComponent implements OnInit {
   isInvalid!: boolean;
   feedForm: FormGroup;
   message!: string;
-
-  constructor() {
+  comments!: IComment[];
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private commService: CommentsService
+  ) {
     this.feedForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      message: new FormControl('', Validators.required),
+      name: new FormControl('', [Validators.required, Validators.pattern('')]),
+      message: new FormControl('', [Validators.required]),
     });
   }
 
   ngOnInit(): void {
-    this.message = '';
+    this.getAllComments();
   }
 
   public onSendFeed(): void {
     this.feedForm.markAllAsTouched();
     if (this.feedForm.valid) {
-      console.log(this.feedForm.value);
+      this.sendMessageData(this.feedForm.value);
     }
   }
 
@@ -36,13 +48,28 @@ export class FeedComponent implements OnInit {
       : false;
   }
 
-  public invalidForm(): boolean {
-    const name = this.feedForm.get('name');
-    const message = this.feedForm.get('message');
-    if (name?.invalid || message?.invalid) {
-      this.isInvalid = true;
-      return true;
-    }
-    return false;
+  public getAllComments(): void {
+    this.commService.getComments().subscribe((resp: IResponse) => {
+      // emit change
+      if (resp.status) {
+        this.comments = resp.data;
+        this.comments.reverse();
+      }
+      this.cdr.detectChanges();
+    });
+  }
+
+  public addComment(name: string, message: string): void {
+    this.commService.newComment(name, message).subscribe((resp: IResponse) => {
+      if (resp.status) {
+        this.feedForm.reset();
+        this.getAllComments();
+      }
+    });
+  }
+
+  public sendMessageData(payload: IComment): void {
+    const { name, message } = payload;
+    this.addComment(name, message);
   }
 }

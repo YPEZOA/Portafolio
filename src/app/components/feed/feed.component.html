@@ -1,20 +1,31 @@
-<section class="feed">
-  <h1 class="feed__title">Send me a Comment</h1>
-  <form class="feed__form" [formGroup]="feedForm" (submit)="onSendFeed()">
-    <div class="feed__form-group">
-      <label class="form-group__field">Name</label>
-      <input class="form-control field" type="text" value=""  formControlName="name"/>
-      <span class="form-control__error" *ngIf="validateFields('name')">Please write your name.</span>
+<section class="row feed">
+    <h1 class="feed__title">Leave me a message</h1>
+  <div class="col-lg-6">
+    <form class="feed__form" [formGroup]="feedForm" (submit)="onSendFeed()">
+      <div class="feed__form-group">
+        <label class="form-group__field">Name</label>
+        <input class="form-control field" type="text" value=""  formControlName="name"/>
+        <span class="form-control__error" *ngIf="validateFields('name')">Please write your name.</span>
+      </div>
+      <div class="feed__form-group">
+        <label class="form-group__field">Comment</label>
+        <textarea cols="10" rows="7" class="form-control field" type="text"
+          [(ngModel)]="message"
+          formControlName="message"
+          maxlength="250"></textarea>
+          <span class="form-control__error" *ngIf="validateFields('message')">Please write your message.</span>
+        <span class="form-control__text-length" [ngClass]="{'max-length_message': message?.length === 250}"><span>{{ message?.length }}</span> / 250</span>
+      </div>
+      <button type="submit" class="btn feed__btn-send" type="submit">send</button>
+    </form>
+  </div>
+  <article class="col-lg-6 comments">
+    <div class="comments__box">
+      <h3 class="comments-box__title">Comments</h3>
+      <aside *ngFor="let comment of comments" class="comments__content">
+        <h6 class="comments-content__name">{{ comment.name }}:</h6>
+        <p class="comments-content__message">{{ comment.message }}</p>
+      </aside>
     </div>
-    <div class="feed__form-group">
-      <label class="form-group__field">Comment</label>
-      <textarea cols="10" rows="7" class="form-control field" type="text"
-        [(ngModel)]="message"
-        formControlName="message"
-        maxlength="200"></textarea>
-      <span class="form-control__error" *ngIf="validateFields('message')">Please write your message.</span>
-      <span class="form-control__text-length" [ngClass]="{'max-length_message': message.length == 200}"><span>{{ message.length }}</span> / 200</span>
-    </div>
-    <button type="submit" class="btn feed__btn-send" type="submit">send</button>
-  </form>
+  </article>
 </section>
