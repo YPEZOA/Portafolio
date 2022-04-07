@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BASE_URI: 'http://localhost:8080/api',
+  BASE_URI: 'https://rest-server-portfolio.herokuapp.com/api',
 };
 
 /*
