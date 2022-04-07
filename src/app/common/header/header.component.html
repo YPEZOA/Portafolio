@@ -3,23 +3,4 @@
     <i class="fab fa-yandex-international logo"></i>
     <a href="#">PEZOA</a>
   </div>
-
-  <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
-    <i *ngIf="isMenuCollapsed" class="fas fa-bars"></i>
-    <i *ngIf="!isMenuCollapsed" class="fas fa-times"></i>
-  </button>
-
-  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link active" (click)="onClickOption()" #option>About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="onClickOption()" #option>Repos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="onClickOption()" #option>Contact</a>
-      </li>
-    </ul>
-  </div>
 </nav>

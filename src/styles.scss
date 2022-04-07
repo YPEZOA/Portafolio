@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&display=swap");
+@import "~ngx-toastr/toastr";
 
 /* You can add global styles to this file, and also import other style files */
+.toast-container .ngx-toastr {
+  box-shadow: 4px 1px 10px rgb(0, 0, 0, 0.3) !important;
+}
 html,
 body {
   padding-top: 60px;
@@ -19,4 +23,11 @@ body {
 
 .root {
   background-color: #222222;
+}
+
+@media screen and (max-width: 930px) {
+  .toast-container {
+    padding-right: 20px !important;
+    margin-top: 80px !important;
+  }
 }

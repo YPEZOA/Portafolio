@@ -32,17 +32,20 @@
 
 @media screen and (max-width: 992px) {
   .header-main {
+    padding: 40px 0px;
+
     .header-main__welcome {
       flex-direction: column;
       .welcome__image {
-        display: none;
+        //display: none;
+        width: 40%;
       }
       .welcome__text {
-        margin-top: 0px;
+        margin-top: 10px;
         font-size: 45px;
         text-align: center;
         line-height: 40px;
-        padding: 0 20px;
+        padding: 0 15px;
       }
     }
   }

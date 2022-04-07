@@ -1,9 +1,9 @@
 <app-header></app-header>
 <div class="main" #scroll>
   <app-main-header></app-main-header>
-  <app-skills></app-skills>
-  <app-project></app-project>
-  <app-feed></app-feed>
-  <app-footer></app-footer>
-  <i *ngIf="showButton" (click)="scrollToTop()" class="fas fa-arrow-up"><span class="up">UP!</span></i>
+  <app-skills #skills></app-skills>
+  <app-project #projects></app-project>
+  <app-feed #feed></app-feed>
+  <app-footer #contact></app-footer>
+  <i *ngIf="showButton" (click)="scrollToTop()" class="fas fa-arrow-up"><span class="up"></span></i>
 </div>

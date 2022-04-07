@@ -1,5 +1,11 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, HostListener, Inject } from '@angular/core';
+import { DOCUMENT, ViewportScroller } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  Inject,
+} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +17,8 @@ export class AppComponent {
 
   constructor(
     @Inject(DOCUMENT)
-    private document: Document
+    private document: Document,
+    private scroller: ViewportScroller
   ) {}
 
   @HostListener('window:scroll')

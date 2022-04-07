@@ -1,31 +1,42 @@
-<section class="row feed">
-    <h1 class="feed__title">Leave me a message</h1>
-  <div class="col-lg-6">
+<section class="feed">
+  <h1 class="feed__title">Suggestions</h1>
+  <div class="feed__contain">
     <form class="feed__form" [formGroup]="feedForm" (submit)="onSendFeed()">
       <div class="feed__form-group">
         <label class="form-group__field">Name</label>
-        <input class="form-control field" type="text" value=""  formControlName="name"/>
+        <input class="form-control field" type="text" value="" formControlName="name" placeholder="your name here..."/>
         <span class="form-control__error" *ngIf="validateFields('name')">Please write your name.</span>
       </div>
       <div class="feed__form-group">
         <label class="form-group__field">Comment</label>
-        <textarea cols="10" rows="7" class="form-control field" type="text"
+        <textarea cols="10" rows="4" class="form-control field" type="text"
           [(ngModel)]="message"
           formControlName="message"
+          placeholder="write me a comment or suggestion"
           maxlength="250"></textarea>
-          <span class="form-control__error" *ngIf="validateFields('message')">Please write your message.</span>
+        <span class="form-control__error" *ngIf="validateFields('message')">Please write the message.</span>;
         <span class="form-control__text-length" [ngClass]="{'max-length_message': message?.length === 250}"><span>{{ message?.length }}</span> / 250</span>
       </div>
       <button type="submit" class="btn feed__btn-send" type="submit">send</button>
     </form>
+    <article class="comments">
+      <h3 *ngIf="!comments" class="comments__not-length">No comments yet</h3>
+      <h3 *ngIf="comments" class="comments__title">
+        Comments <span class="badge bg-secondary comments__length">{{comments.length}}</span>
+      </h3>
+      <div class="comments__box" *ngIf="comments?.length">
+        <div *ngFor="let comment of comments" class="comments__content">
+          <h6 class="comments-content__name">{{ comment.name | titlecase }}:</h6>
+          <p class="comments-content__message">{{ comment.message }}</p>
+        </div>
+      </div>
+    </article>
   </div>
-  <article class="col-lg-6 comments">
-    <div class="comments__box">
-      <h3 class="comments-box__title">Comments</h3>
-      <aside *ngFor="let comment of comments" class="comments__content">
-        <h6 class="comments-content__name">{{ comment.name }}:</h6>
-        <p class="comments-content__message">{{ comment.message }}</p>
-      </aside>
-    </div>
-  </article>
 </section>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="large"
+  color="#fff"
+  type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
